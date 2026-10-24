@@ -5,7 +5,7 @@
 # 📸 Awesome Lens Calibration Software 🔭
 
 [![Awesome](https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github)](https://github.com/ishandutta2007/Awesome-Awesome-Awesome)<a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-[![GitHub Stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Lens-Calibration-Software?style=flat-square&logo=github&color=gold)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/stargazers)
+[![GitHub_Stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Lens-Calibration-Software?style=flat-square&logo=github&color=gold)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/ishandutta2007/Awesome-Lens-Calibration-Software?style=flat-square&color=blue)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/network/members)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/pulls)
@@ -52,7 +52,7 @@ The following commercial and desktop-licensed suites provide dedicated lens prof
 
 ## 💻 Open-Source GitHub Projects
 
-Curated open-source repositories for camera calibration, optical distortion correction, and lens profiling, sorted in **descending order by GitHub star count** 🌟.
+Curated open-source repositories for camera calibration, optical distortion correction, and lens profiling, sorted in **descending order by GitHub Stars_Count** 🌟.
 
 ### 1. 🔭 [COLMAP](https://github.com/colmap/colmap) [![Stars](https://img.shields.io/github/stars/colmap/colmap?style=social&color=white)](https://github.com/colmap/colmap/stargazers)
 - **Primary Focus**: Structure-from-Motion (SfM) and Multi-View Stereo (MVS) with full camera self-calibration.
@@ -151,7 +151,7 @@ Contributions, new tools, and updated profile libraries are welcome!
 1. Fork this repository: `https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software`
 2. Create a feature branch: `git checkout -b add-calibration-tool`
 3. Add your entry under either [SaaS & Commercial Platforms](#-saas--commercial-platforms) or [Open-Source Projects](#-open-source-github-projects).
-4. Maintain exact table formatting, specific pricing figures, and verified GitHub star badges.
+4. Maintain exact table formatting, specific pricing figures, and verified GitHub Stars_Badges.
 5. Submit a Pull Request with a clear description of the project.
 
 ---
