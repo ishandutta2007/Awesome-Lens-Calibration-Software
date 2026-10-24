@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070A13" />
+      <stop offset="50%" stop-color="#0D1527" />
+      <stop offset="100%" stop-color="#0A0F1D" />
+    </linearGradient>
+
+    <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#C084FC" stop-opacity="0.8" />
+    </linearGradient>
+
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="scanBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Calibration Target Pattern -->
+    <pattern id="calibGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.8" stroke-opacity="0.4" />
+      <circle cx="20" cy="20" r="1.5" fill="#38BDF8" fill-opacity="0.25" />
+    </pattern>
+
+    <!-- Drop Shadows & Filters -->
+    <filter id="shadowFilter" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+
+    <filter id="laserGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Dynamic Animations -->
+    <style>
+      @keyframes rotateRing {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes counterRotate {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+      @keyframes scanMotion {
+        0% { transform: translateY(0px); opacity: 0.1; }
+        50% { opacity: 0.7; }
+        100% { transform: translateY(420px); opacity: 0.1; }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.75; transform: scale(1.03); }
+      }
+      @keyframes waveHorizontal {
+        0% { transform: translateX(-100px); }
+        50% { transform: translateX(100px); }
+        100% { transform: translateX(-100px); }
+      }
+
+      .rotating-reticle {
+        transform-origin: 1040px 210px;
+        animation: rotateRing 28s linear infinite;
+      }
+      .counter-reticle {
+        transform-origin: 1040px 210px;
+        animation: counterRotate 42s linear infinite;
+      }
+      .scanner-beam {
+        animation: scanMotion 7s ease-in-out infinite;
+      }
+      .pulsing-element {
+        transform-origin: 1040px 210px;
+        animation: pulseGlow 4s ease-in-out infinite;
+      }
+      .badge-glow {
+        animation: pulseGlow 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Canvas Background -->
+  <rect width="1200" height="420" fill="url(#bgGrad)" rx="16" />
+
+  <!-- Calibration Grid Layer -->
+  <rect width="1200" height="420" fill="url(#calibGrid)" rx="16" />
+
+  <!-- DYNAMIC ANIMATED BACKGROUND ELEMENTS (Non-obstructing, behind content) -->
+  <g class="background-elements" pointer-events="none">
+    <!-- Ambient Laser Scanning Line -->
+    <g class="scanner-beam">
+      <line x1="0" y1="0" x2="1200" y2="0" stroke="url(#scanBeam)" stroke-width="3" filter="url(#laserGlow)" />
+    </g>
+
+    <!-- Optical Calibration Assembly (Right-hand backdrop) -->
+    <!-- Outer Aperture Ring -->
+    <circle cx="1040" cy="210" r="170" fill="none" stroke="#1E293B" stroke-width="2" stroke-dasharray="6 6" />
+    
+    <!-- Rotating Lens Calibration Scales -->
+    <g class="rotating-reticle">
+      <circle cx="1040" cy="210" r="145" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="14 10 4 10" stroke-opacity="0.5" />
+      <circle cx="1040" cy="210" r="120" fill="none" stroke="#818CF8" stroke-width="1" stroke-dasharray="2 8" stroke-opacity="0.6" />
+      <!-- Degree Ticks -->
+      <line x1="1040" y1="65" x2="1040" y2="78" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.7" />
+      <line x1="1040" y1="342" x2="1040" y2="355" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.7" />
+      <line x1="895" y1="210" x2="908" y2="210" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.7" />
+      <line x1="1172" y1="210" x2="1185" y2="210" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.7" />
+    </g>
+
+    <!-- Counter-rotating Fine Scale -->
+    <g class="counter-reticle">
+      <circle cx="1040" cy="210" r="95" fill="none" stroke="#C084FC" stroke-width="1.5" stroke-dasharray="8 12" stroke-opacity="0.4" />
+      <!-- Ray segments representing distortion correction vectors -->
+      <line x1="970" y1="140" x2="985" y2="155" stroke="#818CF8" stroke-width="1.5" stroke-opacity="0.5" />
+      <line x1="1110" y1="140" x2="1095" y2="155" stroke="#818CF8" stroke-width="1.5" stroke-opacity="0.5" />
+      <line x1="970" y1="280" x2="985" y2="265" stroke="#818CF8" stroke-width="1.5" stroke-opacity="0.5" />
+      <line x1="1110" y1="280" x2="1095" y2="265" stroke="#818CF8" stroke-width="1.5" stroke-opacity="0.5" />
+    </g>
+
+    <!-- Pulsing Optical Core -->
+    <g class="pulsing-element">
+      <circle cx="1040" cy="210" r="60" fill="#38BDF8" fill-opacity="0.08" filter="url(#laserGlow)" />
+      <circle cx="1040" cy="210" r="28" fill="#818CF8" fill-opacity="0.15" />
+      <circle cx="1040" cy="210" r="5" fill="#38BDF8" fill-opacity="0.8" />
+      <!-- Optical Crosshair -->
+      <line x1="1010" y1="210" x2="1070" y2="210" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.8" />
+      <line x1="1040" y1="180" x2="1040" y2="240" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.8" />
+    </g>
+
+    <!-- Left Optical Corner Marks -->
+    <path d="M 30 50 L 30 30 L 50 30" fill="none" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.4" />
+    <path d="M 30 370 L 30 390 L 50 390" fill="none" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.4" />
+    <path d="M 1170 50 L 1170 30 L 1150 30" fill="none" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.4" />
+    <path d="M 1170 370 L 1170 390 L 1150 390" fill="none" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.4" />
+  </g>
+
+  <!-- FOREGROUND CONTENT CONTAINER (Highest Z-index, perfectly legible) -->
+  <g class="foreground-content" transform="translate(60, 50)">
+    
+    <!-- Top Pill: Curated Ecosystem Badge -->
+    <g transform="translate(0, 0)">
+      <rect width="260" height="32" rx="16" fill="#1E293B" stroke="#38BDF8" stroke-width="1" stroke-opacity="0.4" />
+      <circle cx="16" cy="16" r="5" fill="#38BDF8" class="badge-glow" />
+      <text x="30" y="21" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="1">
+        OPTICAL CALIBRATION STACK
+      </text>
+    </g>
+
+    <!-- Main Title -->
+    <g transform="translate(0, 72)">
+      <text x="0" y="0" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-0.5" filter="url(#shadowFilter)">
+        Awesome Lens Calibration
+      </text>
+      <!-- Gradient Underline Accent -->
+      <rect x="0" y="14" width="380" height="4" rx="2" fill="url(#primaryGlow)" />
+    </g>
+
+    <!-- Subtitle / Mission Statement -->
+    <g transform="translate(0, 126)">
+      <text x="0" y="0" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="400">
+        Curated directory of distortion correction algorithms, vignetting removal,
+      </text>
+      <text x="0" y="26" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="400">
+        lens profile databases (Lensfun, Adobe LCP), and camera calibration suites.
+      </text>
+    </g>
+
+    <!-- Feature Cards / Badges Row -->
+    <g transform="translate(0, 200)">
+      <!-- Pill 1: Geometric Distortion -->
+      <g transform="translate(0, 0)">
+        <rect width="195" height="42" rx="10" fill="url(#cardBg)" stroke="#334155" stroke-width="1" />
+        <text x="14" y="26" font-size="16">🎯</text>
+        <text x="38" y="26" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Distortion Correction</text>
+      </g>
+
+      <!-- Pill 2: Chromatic Aberration -->
+      <g transform="translate(210, 0)">
+        <rect width="185" height="42" rx="10" fill="url(#cardBg)" stroke="#334155" stroke-width="1" />
+        <text x="14" y="26" font-size="16">🌈</text>
+        <text x="38" y="26" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Chromatic Removal</text>
+      </g>
+
+      <!-- Pill 3: Vignetting -->
+      <g transform="translate(410, 0)">
+        <rect width="175" height="42" rx="10" fill="url(#cardBg)" stroke="#334155" stroke-width="1" />
+        <text x="14" y="26" font-size="16">🔆</text>
+        <text x="38" y="26" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Vignetting Falloff</text>
+      </g>
+
+      <!-- Pill 4: Camera Intrinsic Matrix -->
+      <g transform="translate(600, 0)">
+        <rect width="185" height="42" rx="10" fill="url(#cardBg)" stroke="#334155" stroke-width="1" />
+        <text x="14" y="26" font-size="16">📐</text>
+        <text x="38" y="26" fill="#F1F5F9" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Intrinsic Calibration</text>
+      </g>
+    </g>
+
+    <!-- Meta Highlights Bottom Info -->
+    <g transform="translate(0, 275)">
+      <text x="0" y="0" fill="#64748B" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="500">
+        ⚡ Open-Source Libraries (Lensfun, Gyroflow, COLMAP) &bull; 🏢 Enterprise &amp; Commercial Solutions (Adobe, DxO, Imatest)
+      </text>
+    </g>
+
+  </g>
+</svg>

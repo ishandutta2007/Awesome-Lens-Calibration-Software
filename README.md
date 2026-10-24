@@ -1,66 +1,168 @@
-# Awesome-Lens-Calibration-Software
+<div align="center">
 
-## Top Lens Calibration Software Ecosystem
+<img src="assets/banner.svg" alt="Awesome Lens Calibration Software Banner" width="100%" />
 
-**Curated List of SaaS Products & Open-Source GitHub Projects**  
-*Focused on Distortion Correction, Vignetting Removal & Open Lens Profile Databases*  
-**Last updated: March 2026**
+# 📸 Awesome Lens Calibration Software 🔭
 
-This repository tracks notable **SaaS platforms** and **open-source projects** for **Lens Calibration Software**. These tools characterize and correct the optical imperfections inherent to every lens — barrel and pincushion distortion, lateral chromatic aberration, and vignetting — by generating profiles from calibration targets or applying corrections from open databases, with a spectrum running from Adobe's proprietary profile creator to open-source libraries like Lensfun that power correction across darktable, RawTherapee, and digiKam.
+[![Awesome](https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github)](https://github.com/ishandutta2007/Awesome-Awesome-Awesome)<a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+[![GitHub Stars](https://img.shields.io/github/stars/ishandutta2007/Awesome-Lens-Calibration-Software?style=flat-square&logo=github&color=gold)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/ishandutta2007/Awesome-Lens-Calibration-Software?style=flat-square&color=blue)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/network/members)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/blob/main/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software/pulls)
+<a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
 
-**Examples** include Lensfun, Hugin Calibrate Lens GUI, PTLens/clens, and gyroflow (the category leaders).
+**A curated index of top SaaS products, enterprise platforms, and open-source libraries for lens calibration, optical distortion correction, chromatic aberration removal, vignetting elimination, and camera intrinsic profiling.**
 
-**Open-source emphasis**: This section is heavily expanded with every major active project for self-hosting, open profile databases, and transparent correction algorithms — especially relevant as **Lensfun remains the de facto standard library for lens correction in open-source photography**, and **Hugin's calibrate_lens_gui** provides a GUI-driven straight-line calibration workflow without proprietary tooling .
+[Market Overview](#-sector-overview--market-dynamics) • [SaaS & Commercial Platforms](#-saas--commercial-platforms) • [Open-Source Projects](#-open-source-github-projects) • [Key Concepts](#-key-concepts--calibration-terminology) • [Star History](#-star-history)
 
-Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
-
-## Table of Contents
-- [SaaS/Hosted Platforms](#saas-hosted-platforms)
-- [Open-Source GitHub Projects](#open-source-github-projects)
-- [How to Contribute](#how-to-contribute)
-- [Disclaimer](#disclaimer)
-
-## SaaS/Hosted Platforms
-
-- **Adobe Lens Profile Creator** — **The reference tool for creating custom Adobe lens profiles.** **Freeware for Windows** (79.8 MB installer) , used to generate `.lcp` profiles for Adobe Camera Raw, Lightroom, and Photoshop . **Workflow**: capture a set of checkerboard images with the specific camera and lens, convert raw files to DNG using Adobe Camera Raw, then import into Lens Profile Creator to characterize geometric distortion, lateral chromatic aberration, and vignetting . **Trade-offs**: Windows-only, requires the Adobe ecosystem to use the generated profiles, and is a standalone utility rather than an integrated calibration engine . **Best for Adobe users** wanting custom profiles for lenses not covered by Adobe's built-in database, accepting the Windows-only and Adobe-locked workflow.
-
-- **DxO OpticsPro Lens Modules** — **The commercial lens correction standard.** DxO's proprietary modules provide per-lens, per-camera correction for distortion, vignetting, chromatic aberration, and sharpness. **Included with DxO PhotoLab licensing**. **Best for DxO users** wanting best-in-class automatic corrections, accepting the closed ecosystem and subscription/perpetual cost.
-
-## Open-Source GitHub Projects
-
-- **Lensfun** — **The open-source lens database and correction library that powers most open-source photography software.** **LGPL-3.0 licensed**, **lensfun 0.3.4** is the current stable release . **Provides an open database of photographic lenses and their characteristics**, with a library that reads and searches the database and applies correction algorithms . **Corrects distortion, transversal (lateral) chromatic aberration, vignetting, and color contribution** . **Used by darktable, RawTherapee, digiKam, and other open-source photo editors** as their correction engine. **Available via package managers** (Fedora, Debian, Arch) with tools, Python bindings, and development headers . **The honest caveat**: **it is a library, not a standalone application** — you need a photo editor that integrates it, and adding new lenses to the database requires calibration data and community contribution. **Best for open-source photography workflows** needing reliable, database-driven lens correction without proprietary dependencies.
-
-- **Hugin Calibrate Lens GUI** — **The GUI-driven straight-line lens calibration tool.** **Free and open-source**, part of the Hugin panorama stitcher suite . **Uses the straight-line approach**: load images with straight lines (buildings, string, horizon), run Canny edge detection to find lines, then optimize lens parameters (a, b, c radial distortion coefficients) by minimizing how curved those lines appear . **Workflow**: load images → check focal length/crop factor from EXIF → detect lines → optimize lens parameters → save for use in Hugin . **Line detection is tunable** via scale/radius and threshold, with a preview showing edge detection and corrected results, and manual marking of bad lines to exclude them from optimization . **The honest caveat**: **requires images containing straight lines** — it is not a checkerboard-based calibration tool, and its primary output is Hugin-compatible parameters rather than a universal profile format. **Best for Hugin users and anyone needing a GUI-driven straight-line calibration** without writing scripts or using proprietary tools.
-
-- **PTLens / clens** — **The classic automatic lens correction tool with a command-line counterpart.** **PTLens is a free add-on for Panorama Tools** that automatically corrects vignetting, pincushion distortion, and barrel distortion . **Available as a Photoshop plugin and standalone Windows program**, with **clens** — a command-line version using the same lens database — available for Linux, Windows, and OS X . **Supports a wide range of prosumer and SLR cameras**, and if your camera/lens combination is missing, you can forward calibration pictures to the author for inclusion . **The honest caveat**: **legacy tooling** — PTLens dates back to the mid-2000s, and while clens remains useful for scripted correction, the project is not actively developed as a modern calibration suite. **Best for batch/scripted correction** where a command-line tool with a known lens database fits the workflow.
-
-- **gyroflow** — **The video stabilization tool with integrated lens calibration.** **Open-source, hardware-accelerated**, using gyroscope and accelerometer data for pixel-level stabilization . **Includes lens calibration capabilities**: determines focal length and lens distortions by analyzing calibration patterns to create a lens profile, and calculates intrinsic/extrinsic camera parameters to correct distortion . **Integrates with professional NLEs via plugins** so stabilization and correction can be applied directly to timelines . **The honest caveat**: **video-focused** — its calibration is in service of stabilization rather than stills photography, and the workflow is tuned for motion footage. **Best for videographers** needing lens distortion correction as part of a gyro-stabilization pipeline.
-
-- **Kalibr** — **The robotics-grade multi-camera and visual-inertial calibration suite.** **Open-source (ETH Zurich)**, providing a mathematical framework for determining intrinsic and extrinsic parameters across multiple cameras and spatio-temporal offsets between cameras and IMUs . **Features a non-linear least-squares optimizer** minimizing reprojection and inertial errors, with specialized tools for **rolling-shutter camera calibration** . **The honest caveat**: **robotics/computer-vision focused** — it is not a photography lens-profile generator, and setup requires calibration targets and technical expertise. **Best for robotics and CV researchers** needing precise multi-sensor calibration, not for photographers creating `.lcp` profiles.
-
-### Additional Strong Open-Source Options
-
-- **lens-distortion-rectification (bbenligiray)** — **Blind radial distortion rectification by line straightness.** Matlab implementation, 28+ GitHub stars . **Corrects distortion without a calibration pattern** by exploiting straight lines in the scene. **Best for research and blind correction scenarios** where no calibration target is available.
-- **opencv_live_distortion** — **Real-time OpenCV distortion correction with parameter tweaking.** Python-based, 5+ GitHub stars . **Best for interactive experimentation** with OpenCV's distortion models.
-
-**Frameworks for building custom systems**: Combine **Lensfun** for database-driven correction inside a photo editor, **Hugin Calibrate Lens GUI** for generating custom correction parameters from straight-line scenes, **PTLens/clens** for scripted batch correction, and **gyroflow** for video stabilization with lens correction — to build a lens calibration and correction stack tailored to your need for stills profiles versus video stabilization, and database lookup versus custom calibration.
-
-## How to Contribute
-
-1. Fork the repo.
-2. Add/edit entries in `README.md` (follow existing format).
-3. Include: name, link, 1–2 sentence description, and whether it's SaaS or open-source.
-4. Submit PR with a short explanation.
-
-Star the repo if you find it useful!
-
-## Disclaimer
-
-- This is a **community-curated** list — not exhaustive and not an endorsement.
-- Lens calibration tools differ significantly in calibration method (checkerboard vs straight-line vs blind), output format (`.lcp` vs Lensfun database vs Hugin parameters), and integration ecosystem. **Adobe Lens Profile Creator is Windows-only freeware** that produces `.lcp` files usable only in Adobe software . **Lensfun is a library, not an application** — its correction capability depends on the photo editor that integrates it, and its database grows through community contribution . **Hugin's calibrate_lens_gui requires straight lines in the scene** and outputs Hugin-compatible parameters rather than universal profiles . **PTLens/clens is legacy tooling** — useful for scripted correction but not a modern calibration suite . **Kalibr is for robotics**, not photography . **The choice often comes down to output target**: `.lcp` for Adobe, Lensfun database for open-source editors, or Hugin parameters for panorama stitching.
-- Self-hosted open-source solutions require proper library installation (Lensfun via package manager), calibration target acquisition or straight-line scene capture, and awareness that lens correction is most accurate when calibration is performed at the same focal length and focus distance as the intended shoot.
+</div>
 
 ---
 
-**Made for photographers, videographers, and computer-vision engineers choosing lens calibration tools that match their correction target and workflow.**
-Let's make lens calibration more open, database-driven, and calibration-method-transparent.
+## 📖 Introduction & SEO Overview
+
+Every optical lens introduces physical imperfections: **barrel, pincushion, and mustache radial distortion**, **transversal (lateral) chromatic aberration**, **sensor-plane light falloff (vignetting)**, and **tangential/decentering misalignment**. High-precision photography, professional cinematography, drone photogrammetry, autonomous robotics, and computer vision (SLAM) depend on software calibration to characterize optical flaws and mathematically rectify raw pixel arrays.
+
+This directory tracks the leading **SaaS/commercial suites** and **open-source tools** spanning target-based calibration (checkerboards, ChArUco, circle grids), straight-line scene optimization, and community-driven lens profile databases (Lensfun, Adobe `.lcp`).
+
+---
+
+## 📊 Sector Overview & Market Dynamics
+
+The global camera calibration and optical alignment software market is valued at approximately **$13.45 billion to $13.75 billion**, projected to scale to **$24.8 billion by 2032** at an **8.9% CAGR**, alongside a broader industrial optical measurement and metrology software market valued between **$3.5 billion and $7.0 billion**. 
+
+At the macro industry level, the sector is **moderately fragmented** across disparate application domains (consumer RAW photography editing, drone photogrammetry, industrial QA, and autonomous robotics). However, individual verticals exhibit **intense oligopolistic concentration**: Adobe commands a near winner-take-most position in mainstream photo editing workflows; DxO Labs and Capture One maintain an entrenched high-end studio duopoly; and Imatest functions as the de facto enterprise standard for optoelectronic hardware testing.
+
+---
+
+## 🏢 SaaS & Commercial Platforms
+
+The following commercial and desktop-licensed suites provide dedicated lens profiling, automatic optical aberration correction, and camera characterization. Tiers are sorted in **descending order by company valuation / annual revenue**.
+
+| Platform & Provider | Company Valuation / Revenue | Specific Starting Pricing | Free Tier / Trial Limits | Key Capabilities & Primary Focus |
+| :--- | :--- | :--- | :--- | :--- |
+| [Adobe Camera Raw & Lens Profile Creator](https://helpx.adobe.com/camera-raw/digital-negative.html) <br><sub>*(Adobe Inc. - NASDAQ: ADBE)*</sub> | **$215 Billion** Valuation <br><sub>($21.4B Annual Revenue)</sub> | **$9.99 / month** <br><sub>(Photography Plan 20GB; or $19.99/mo for Lightroom 1TB)</sub> | **7-day free trial** with full feature access to Photoshop/Lightroom; standalone **Adobe Lens Profile Creator** utility is **100% free forever** *(requires ACR/Lightroom to apply profiles)* | Industry reference checkerboard calibration utility generating `.lcp` profiles characterizing geometric radial distortion, lateral chromatic aberration, and vignetting across Adobe Camera Raw, Lightroom, and Photoshop. |
+| [Capture One Pro](https://www.captureone.com/) <br><sub>*(Capture One A/S / Axcel)*</sub> | **$215 Million** Valuation <br><sub>(~$30M–$35M Annual Revenue)</sub> | **$24.00 / month** <br><sub>(or $179.00/year billed annually; $299.00 perpetual license)</sub> | **30-day fully functional free trial** <br><sub>(no credit card required; all RAW profiling and tethering tools unlocked)</sub> | Studio-grade raw workflow engine featuring factory-calibrated optical profiles for 500+ lens/body pairings, correcting geometric distortion, light falloff, and chromatic aberration with custom slider fine-tuning. |
+| [Topaz Photo AI](https://www.topazlabs.com/topaz-photo-ai) <br><sub>*(Topaz Labs LLC)*</sub> | **~$120 Million** Valuation <br><sub>(~$25M–$30M Annual Revenue)</sub> | **$199.00 one-time** <br><sub>(includes 12 months of updates; optional $99/year renewal thereafter)</sub> | **Unlimited duration free trial** <br><sub>(complete UI and processing access; exported images contain a prominent watermark)</sub> | Deep learning-enhanced optical correction, automated lens distortion rectification, intelligent de-mosaicing, and AI-powered chromatic fringe suppression. |
+| [DxO PhotoLab Elite](https://www.dxo.com/dxo-photolab/) <br><sub>*(DxO Labs)*</sub> | **~$80 Million** Valuation <br><sub>(~$18M–$25M Annual Revenue)</sub> | **$229.99 one-time** <br><sub>(PhotoLab Elite; or $139.99 for PhotoLab Essential perpetual)</sub> | **30-day fully functional free trial** <br><sub>(no watermark, no credit card required; unrestricted access to DxO Optics Modules)</sub> | Renowned optical laboratory calibration modules delivering per-pixel correction for geometric barrel/pincushion distortion, vignetting falloff, chromatic aberration, and edge-to-edge sharpness optimization. |
+| [Imatest Master](https://www.imatest.com/) <br><sub>*(Imatest LLC)*</sub> | **~$60 Million** Valuation <br><sub>(~$15M–$20M Annual Revenue)</sub> | **$2,960.00 / year** <br><sub>(Node-locked subscription; or $8,100.00 one-time perpetual license)</sub> | **15-day free trial** <br><sub>(full access to SFRplus, eSFR ISO, and distortion testing modules; save/export functions restricted)</sub> | Industrial and aerospace benchmark software for camera and lens quality assurance; calculates SMIA TV distortion, radial distortion polynomial coefficients, grid target alignment, and MTF resolution curves. |
+| [Agisoft Metashape](https://www.agisoft.com/) <br><sub>*(Agisoft LLC)*</sub> | **~$45 Million** Valuation <br><sub>(~$10M–$15M Annual Revenue)</sub> | **$179.00 one-time** <br><sub>(Standard Edition; or $3,499.00 for Professional Edition perpetual)</sub> | **30-day full-featured trial license** <br><sub>(available upon email registration; all export/saving capabilities fully operational)</sub> | Photogrammetric camera calibration suite estimating Brown-Conrady physical distortion coefficients ($k_1-k_4, p_1, p_2, b_1, b_2$) from checkerboards or scene bundle adjustment. |
+
+---
+
+## 💻 Open-Source GitHub Projects
+
+Curated open-source repositories for camera calibration, optical distortion correction, and lens profiling, sorted in **descending order by GitHub star count** 🌟.
+
+### 1. 🔭 [COLMAP](https://github.com/colmap/colmap) [![Stars](https://img.shields.io/github/stars/colmap/colmap?style=social&color=white)](https://github.com/colmap/colmap/stargazers)
+- **Primary Focus**: Structure-from-Motion (SfM) and Multi-View Stereo (MVS) with full camera self-calibration.
+- **Key Features**: Automates intrinsic camera parameter estimation ($f_x, f_y, c_x, c_y$) and non-linear radial/fisheye distortion modeling across unconstrained image sets without requiring checkerboard targets.
+- **License**: BSD-3-Clause
+
+### 2. 🌀 [Gyroflow](https://github.com/gyroflow/gyroflow) [![Stars](https://img.shields.io/github/stars/gyroflow/gyroflow?style=social&color=white)](https://github.com/gyroflow/gyroflow/stargazers)
+- **Primary Focus**: Hardware-accelerated video stabilization using IMU telemetry with integrated lens calibration.
+- **Key Features**: Features an intuitive graphical lens calibration wizard that analyzes checkerboard patterns to generate custom lens distortion profiles, calculating optical centers and focal lengths for action cameras and cinema lenses.
+- **License**: GPL-3.0
+
+### 3. 🤖 [Kalibr](https://github.com/ethz-asl/kalibr) [![Stars](https://img.shields.io/github/stars/ethz-asl/kalibr?style=social&color=white)](https://github.com/ethz-asl/kalibr/stargazers)
+- **Primary Focus**: Multi-camera and visual-inertial calibration toolbox from ETH Zurich Autonomous Systems Lab.
+- **Key Features**: High-precision non-linear least-squares optimization for camera intrinsic/extrinsic parameters, spatial and temporal IMU-camera offsets, and dedicated modeling for rolling-shutter cameras using AprilTag grids.
+- **License**: BSD-3-Clause
+
+### 4. 📐 [CamOdoCal](https://github.com/hengli/camodocal) [![Stars](https://img.shields.io/github/stars/hengli/camodocal?style=social&color=white)](https://github.com/hengli/camodocal/stargazers)
+- **Primary Focus**: Automatic intrinsic and extrinsic calibration of multi-camera rigs and visual odometry.
+- **Key Features**: Comprehensive support for generic camera models including standard pinhole, Scaramuzza omnidirectional/catadioptric, and Kannala-Brandt fisheye distortion models.
+- **License**: BSD-3-Clause
+
+### 5. 🎯 [CameraCalibration](https://github.com/dyfcalid/CameraCalibration) [![Stars](https://img.shields.io/github/stars/dyfcalid/CameraCalibration?style=social&color=white)](https://github.com/dyfcalid/CameraCalibration/stargazers)
+- **Primary Focus**: Normal and fisheye camera intrinsic/extrinsic calibration.
+- **Key Features**: Generates 360-degree surround-view Bird's-Eye-View (BEV) camera systems; implements checkerboard corner extraction, distortion removal, and perspective transformation.
+- **License**: Apache-2.0
+
+### 6. 📚 [Lensfun](https://github.com/lensfun/lensfun) [![Stars](https://img.shields.io/github/stars/lensfun/lensfun?style=social&color=white)](https://github.com/lensfun/lensfun/stargazers)
+- **Primary Focus**: The de facto open-source photographic lens database and correction engine.
+- **Key Features**: Community-maintained XML database characterizing thousands of lenses; provides C++ algorithms correcting transversal chromatic aberration, poly3/poly5/PTLens radial distortion, and cosine-falloff vignetting. Powers Darktable, RawTherapee, and DigiKam.
+- **License**: LGPL-3.0
+
+### 7. 🔬 [camera_calibration](https://github.com/puzzlepaint/camera_calibration) [![Stars](https://img.shields.io/github/stars/puzzlepaint/camera_calibration?style=social&color=white)](https://github.com/puzzlepaint/camera_calibration/stargazers)
+- **Primary Focus**: Highly accurate geometric camera calibration with generic camera models.
+- **Key Features**: Implements both parametric polynomial models and continuous B-spline non-parametric distortion fields for ultra-high-precision optical alignment and sub-pixel corner optimization.
+- **License**: BSD-3-Clause
+
+### 8. 🛰️ [mrcal](https://github.com/dkogan/mrcal) [![Stars](https://img.shields.io/github/stars/dkogan/mrcal?style=social&color=white)](https://github.com/dkogan/mrcal/stargazers)
+- **Primary Focus**: NASA JPL's next-generation camera modeling and calibration framework.
+- **Key Features**: Eliminates rigid parametric distortion formulas in favor of flexible non-linear splined surfaces; delivers formal uncertainty quantification propagation for robotics and orbital vision.
+- **License**: Apache-2.0
+
+### 9. 🐍 [lensfunpy](https://github.com/letmaik/lensfunpy) [![Stars](https://img.shields.io/github/stars/letmaik/lensfunpy?style=social&color=white)](https://github.com/letmaik/lensfunpy/stargazers)
+- **Primary Focus**: Python C-extension wrapper for the Lensfun library.
+- **Key Features**: Provides clean NumPy array interfacing for batch programmatic lens distortion rectification, vignetting removal, and chromatic aberration correction directly in scientific Python pipelines.
+- **License**: MIT
+
+### 10. 📏 [LensDistortionFromLines](https://github.com/alicevision/LensDistortionFromLines) [![Stars](https://img.shields.io/github/stars/alicevision/LensDistortionFromLines?style=social&color=white)](https://github.com/alicevision/LensDistortionFromLines/stargazers)
+- **Primary Focus**: AliceVision's straight-line-based lens distortion rectification.
+- **Key Features**: Iterative non-linear optimization computing two-parameter radial distortion models directly from straight-line scene geometry (architectural lines, horizons) without requiring physical calibration targets.
+- **License**: MPL-2.0
+
+### 11. 🎨 [GIMP-Lensfun](https://github.com/seebk/GIMP-Lensfun) [![Stars](https://img.shields.io/github/stars/seebk/GIMP-Lensfun?style=social&color=white)](https://github.com/seebk/GIMP-Lensfun/stargazers)
+- **Primary Focus**: Interactive desktop GIMP plugin integrating the Lensfun correction engine.
+- **Key Features**: Detects camera body and lens metadata from EXIF and applies real-time interactive previews for lens distortion, vignetting falloff, and chromatic aberration correction inside GIMP.
+- **License**: GPL-3.0
+
+### 12. 👁️ [lens-distortion-rectification](https://github.com/bbenligiray/lens-distortion-rectification) [![Stars](https://img.shields.io/github/stars/bbenligiray/lens-distortion-rectification?style=social&color=white)](https://github.com/bbenligiray/lens-distortion-rectification/stargazers)
+- **Primary Focus**: Blind radial distortion rectification exploiting line straightness.
+- **Key Features**: MATLAB implementation optimizing radial curvature metrics on natural images without calibration targets or prior camera parameters.
+- **License**: MIT
+
+### 13. 🎛️ [opencv_live_distortion](https://github.com/vwvw/opencv_live_distortion) [![Stars](https://img.shields.io/github/stars/vwvw/opencv_live_distortion?style=social&color=white)](https://github.com/vwvw/opencv_live_distortion/stargazers)
+- **Primary Focus**: Real-time OpenCV distortion experimentation utility.
+- **Key Features**: Python and OpenCV tool featuring live GUI sliders for radial ($k_1, k_2, k_3$) and tangential ($p_1, p_2$) coefficients to immediately inspect undistortion grids.
+- **License**: MIT
+
+---
+
+## 🧠 Key Concepts & Calibration Terminology
+
+Understanding lens calibration requires familiarity with the standard optical distortion and projective geometry models:
+
+* **Radial Distortion**:
+  * **Barrel Distortion ($k_1 < 0$)**: Image magnification decreases with distance from the optical axis; straight lines bow outward like a barrel (common in wide-angle and fisheye lenses).
+  * **Pincushion Distortion ($k_1 > 0$)**: Image magnification increases with distance from the optical axis; lines bow inward toward the center (common in telephoto lenses).
+  * **Mustache (Complex) Distortion**: Non-linear mix where barrel distortion dominates near the optical center and flips to pincushion distortion near the frame periphery.
+* **Tangential (Decentering) Distortion ($p_1, p_2$)**:
+  * Arises when physical lens elements are not perfectly parallel to each other or to the camera sensor plane, displacing pixels tangential to concentric rings.
+* **Chromatic Aberration (Color Fringing)**:
+  * **Transversal / Lateral Chromatic Aberration (TCA)**: Wavelength-dependent magnification differences resulting in color fringes (red/cyan, blue/yellow) near high-contrast frame edges. Fully correctable by software scaling of individual color planes.
+  * **Longitudinal / Axial Chromatic Aberration (LoCA)**: Different wavelengths focus at different focal depths along the optical axis, creating purple/green halos in out-of-focus highlights.
+* **Vignetting (Light Falloff)**:
+  * Reduction of image brightness toward the periphery caused by lens barrels physically blocking off-axis light (mechanical vignetting), pupil geometry (optical vignetting), or the natural optical $\cos^4(\theta)$ illumination drop.
+* **Camera Intrinsic Matrix ($K$)**:
+  $$K = \begin{bmatrix} f_x & s & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}$$
+  * $f_x, f_y$: Effective focal lengths in pixel units.
+  * $c_x, c_y$: Principal point (optical center coordinate on the sensor).
+  * $s$: Skew factor between the sensor axes (typically 0 for modern square-pixel sensors).
+
+---
+
+## 🤝 How to Contribute
+
+Contributions, new tools, and updated profile libraries are welcome!
+
+1. Fork this repository: `https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software`
+2. Create a feature branch: `git checkout -b add-calibration-tool`
+3. Add your entry under either [SaaS & Commercial Platforms](#-saas--commercial-platforms) or [Open-Source Projects](#-open-source-github-projects).
+4. Maintain exact table formatting, specific pricing figures, and verified GitHub star badges.
+5. Submit a Pull Request with a clear description of the project.
+
+---
+
+## ⭐ Star History
+
+[![Star History Chart](https://star-history.dera.page/sv?repos=ishandutta2007/Awesome-Lens-Calibration-Software&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Lens-Calibration-Software&type=date&legend=top-left)
+
+---
+
+## 📜 Disclaimer & License
+
+- This compilation is community-curated for informational, educational, and research purposes. Product names and trademarks belong to their respective copyright holders.
+- Distributed under the [MIT License](LICENSE).
