@@ -13,7 +13,7 @@
 
 **A curated index of top SaaS products, enterprise platforms, and open-source libraries for lens calibration, optical distortion correction, chromatic aberration removal, vignetting elimination, and camera intrinsic profiling.**
 
-[Market Overview](#-sector-overview--market-dynamics) • [SaaS & Commercial Platforms](#-saas--commercial-platforms) • [Open-Source Projects](#-open-source-github-projects) • [Key Concepts](#-key-concepts--calibration-terminology) • [Star History](#-star-history)
+[Market Overview](#-sector-overview--market-dynamics) • [SaaS & Commercial Platforms](#-saas--commercial-platforms) • [Open-Source Projects](#-open-source-github-projects) • [Key Concepts](#-key-concepts--calibration-terminology) • [Support](#-support) • [Star History](#-star-history)
 
 </div>
 
@@ -153,6 +153,27 @@ Contributions, new tools, and updated profile libraries are welcome!
 3. Add your entry under either [SaaS & Commercial Platforms](#-saas--commercial-platforms) or [Open-Source Projects](#-open-source-github-projects).
 4. Maintain exact table formatting, specific pricing figures, and verified GitHub star badges.
 5. Submit a Pull Request with a clear description of the project.
+
+---
+
+## 💖 Support
+
+A huge thank you to everyone exploring, contributing to, and supporting **Awesome Lens Calibration Software**! 🙌 If you found this curated directory helpful for your photography setups, drone photogrammetry pipelines, or computer vision research, please consider supporting the project:
+
+- ⭐ **Star this repository** to boost discovery and help more developers, photographers, and researchers find it.
+- 🍴 **Fork & Share** with your colleagues, lab teams, and photography communities.
+- 🛠️ **Contribute entries** to keep the optical correction libraries, lens profile databases, and camera tools continually updated.
+- ☕ **Buy Me a Coffee**: If this repository saved you research hours or helped solve tricky optical distortions, you can support future development and maintenance via the [GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007).
+
+<p align="center">
+  <a href="https://github.com/sponsors/ishandutta2007">
+    <img src="https://img.shields.io/badge/Sponsor-%E2%9D%A4-ea4aaa?style=for-the-badge&logo=github-sponsors" alt="Sponsor on GitHub" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/sponsors/ishandutta2007">
+    <img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" />
+  </a>
+</p>
 
 ---
 
