@@ -52,7 +52,7 @@ The following commercial and desktop-licensed suites provide dedicated lens prof
 
 ## 💻 Open-Source GitHub Projects
 
-Curated open-source repositories for camera calibration, optical distortion correction, and lens profiling, sorted in **descending order by GitHub Stars_Count** 🌟.
+Curated open-source repositories for camera calibration, optical distortion correction, and lens profiling, sorted in **descending order by GitHub_Stars_Count** 🌟.
 
 ### 1. 🔭 [COLMAP](https://github.com/colmap/colmap) [![Stars](https://img.shields.io/github/stars/colmap/colmap?style=social&color=white)](https://github.com/colmap/colmap/stargazers)
 - **Primary Focus**: Structure-from-Motion (SfM) and Multi-View Stereo (MVS) with full camera self-calibration.
@@ -151,7 +151,7 @@ Contributions, new tools, and updated profile libraries are welcome!
 1. Fork this repository: `https://github.com/ishandutta2007/Awesome-Lens-Calibration-Software`
 2. Create a feature branch: `git checkout -b add-calibration-tool`
 3. Add your entry under either [SaaS & Commercial Platforms](#-saas--commercial-platforms) or [Open-Source Projects](#-open-source-github-projects).
-4. Maintain exact table formatting, specific pricing figures, and verified GitHub Stars_Badges.
+4. Maintain exact table formatting, specific pricing figures, and verified GitHub_Stars_Badges.
 5. Submit a Pull Request with a clear description of the project.
 
 ---
