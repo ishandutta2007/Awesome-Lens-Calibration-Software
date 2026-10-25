@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Awesome Lens Calibration Software Banner" width="100%" />
+<img src="./assets/banner.svg" alt="Awesome Lens Calibration Software Banner" width="100%" />
 
 # 📸 Awesome Lens Calibration Software 🔭
 
